@@ -11,44 +11,41 @@
       <button type="button" onclick="play();">Chơi</button>
     </div>
     <script>
-      function play() {
-        let guess = 0;
-        let anwser = Math.round(Math.random() * 10);
-        console.log("anwser " + anwser);
-        let firstArr = [];
-        let secondArr = [];
-        let thirdArr = [];
-        let mid = 0;
-        for (let i = 0; i < 10; i++) {
-          firstArr[i] = i;
-        }
-        guess = parseFloat(prompt("Hãy đoán một số bất kì từ 0 - 9"));
-        while (guess != anwser) {
-          mid = Math.floor((firstArr.length - 1) / 2);
-          console.log("mid " + mid);
-          console.log("firstArray" + firstArr);
-          for (let j = 0; j <= mid; j++) {
-            for (i = 0; i <= mid; i++) {
-              secondArr[j] = firstArr[i];
+        function play() {
+          let guess = 0;
+          let anwser = Math.floor(Math.random() * 10);
+          console.log("anwser " + anwser);
+          let firstArr = [];
+          let secondArr = [];
+          let thirdArr = [];
+          let mid = 0;
+          guess = parseFloat(prompt("Hãy chọn một số bất kì từ 0 - 9. Đáp án sẽ là một số ngẫu nhiên từ 0 đến 9"));
+          for (let i = 0; i <= 10; i++) {
+            firstArr[i] = i;
+          }
+          while (guess != anwser) {
+            mid = Math.floor((firstArr.length - 1) / 2);
+            console.log("mid " + mid);
+            console.log("firstArray" + firstArr);
+            for (let i = 0; i <= mid; i++) {
+                secondArr[i] = firstArr[i];
+              }
+            console.log(secondArr);
+            //console.log("fisrt Array"+firstArr);
+            for (let j = mid + 1; j < firstArr.length; j++) {
+                thirdArr[j] = firstArr[j];
             }
-          }
-          console.log(secondArr);
-          //console.log("fisrt Array"+firstArr);
-          for (let k = mid + 1; k < firstArr.length; k++) {
-            for (i = mid + 1; i < firstArr.length; i++) {
-              thirdArr[k] = firstArr[i];
+            //console.log(thirdArr);
+            if (guess <= secondArr[mid]) {
+              alert("Số bạn cần đoán là một trong các số: [" + secondArr + "]");
+            } else {
+              alert("Số bạn cần đoán là một trong các số: [" + thirdArr + "]");
             }
+            guess = parseFloat(prompt("Đoán lại xem"));
           }
-          //console.log(thirdArr);
-          if (guess <= secondArr[mid]) {
-            alert("Số bạn cần đoán nằm trong khoảng từ" + secondArr);
-          } else {
-            alert("Số bạn cần đoán nằm trong khoảng từ" + thirdArr);
-          }
-          guess = parseFloat(prompt("Đoán lại xem"));
+          alert("Chúc mừng bạn đã chiến thắng trò chơi");
         }
-        alert("Chúc mừng bạn đã chiến thắng trò chơi");
-      }
+      
     </script>
   </body>
 </html>

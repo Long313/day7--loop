@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <button type="button" onclick="play();">Chơi</button>
     <script>
-        function play(){
-           let a = parseInt(prompt('Hãy nhập vào một số "a" bất kì. Số bạn đoán sẽ nằm trong khoảng từ 0 đến "a"'));
-           const answer = Math.floor(Math.random()*(a+1));
-           console.log("answer "+ answer);
-           let guess;
-           do{
-               guess = parseInt(prompt("Hãy nhập vào đáp án của bạn"));
-        } while( guess != answer);
-        alert("Chúc mừng bạn đã chiến thắng trò chơi");
-        }
+      function play() {
+        let a = parseInt(
+          prompt(
+            'Hãy nhập vào một số "a" bất kì. Số bạn đoán sẽ nằm trong khoảng từ 0 đến "a"'
+          )
+        );
+        const answer = Math.floor(Math.random() * (a + 1));
+        console.log("answer " + answer);
+        //let guess = parseInt(prompt("Hãy nhập vào đáp án của bạn"));
+        do {
+          for(let i = 0; i < 3; i++){
+            guess = parseInt(prompt("Hãy nhập vào đáp án"));
+            while(guess==answer){
+                alert("Chúc mừng bạn đã chiến thắng");
+            }
+          }
+          while(guess!=answer){
+              alert("Bạn đã thua cuộc. Đáp án là " + answer);
+            break;
+          }
+        } while (guess != answer);
+        
+      }
     </script>
-</body>
+  </body>
 </html>
