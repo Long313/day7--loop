@@ -24,15 +24,15 @@ Giá trị của N tăng lên 1 để kiểm tra số tiếp theo -->
     let index = 0;
     let arr = [2];
     for (let i = 0; i < 1000; i++) {
-      if (count == numbers) break;
+      if (count == numbers-1) break;
       for (let j = 0; j < arr.length; j++) {
-        if (i % arr[j] != 0 && i > 2) {
+        if (i % arr[j] == 0) {
           break;
-        } else {
+        } else if(i>2){
           index++;
           if (index == arr.length) {
             arr.push(i);
-            console.log("length"+arr.length);
+            // console.log("length"+arr.length);
             console.log(arr);
             count++;
             index = 0;
